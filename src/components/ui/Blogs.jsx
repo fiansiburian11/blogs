@@ -1,8 +1,8 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/Dialog";
+import AOS from "aos";
 
 export default function Blogs() {
   const blogs = [
@@ -32,11 +32,21 @@ export default function Blogs() {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [open, setOpen] = useState(false);
 
+  //inisialisasi aos untuk animasi
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
+
   return (
     <div className="mt-20">
-      <h1 className="text-3xl text-white font-bold">Blogs</h1>
+      <h1 data-aos="fade-right" className="text-lg sm:text-xs md:text-2xl lg:text-4xl text-white font-bold">
+        Blogs
+      </h1>
 
-      <section className="grid grid-cols-3 mt-4 gap-20">
+      <section data-aos="flip-up" className="grid md:grid-cols-3 grid-cols-2 mt-4 md:gap-20 gap-5">
         {blogs.map((blog) => (
           <div key={blog.id} className="hover:rounded-2xl hover:border-2 p-2">
             <Image src={blog.image} alt="" width={350} height={350} className="w-full hover:rounded-lg" />
@@ -57,7 +67,7 @@ export default function Blogs() {
                 </p>
               </DialogTrigger>
 
-              <DialogContent className="max-w-sm bg-white ">
+              <DialogContent className="max-w-xs md:max-w-sm bg-white ">
                 <DialogHeader>
                   <DialogTitle>{selectedBlog?.title}</DialogTitle>
                   <DialogDescription>{selectedBlog?.date}</DialogDescription>

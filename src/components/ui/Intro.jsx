@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useEffect } from "react";
 import { PiInstagramLogoDuotone } from "react-icons/pi";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { PiTiktokLogo } from "react-icons/pi";
 import { LuGithub } from "react-icons/lu";
+import AOS from "aos";
+
 export default function Intro() {
   const sosmed = [
     {
@@ -28,15 +32,25 @@ export default function Intro() {
       icon: <LuGithub size={20} className="text-slate-400" />,
     },
   ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  }, []);
+
   return (
     <div>
       <section className="w-1/2 mt-20">
-        <div>
-          <Image src="/images/logo.png" alt="" width={30} height={30}/>
-          <h1 className="font-bold text-white text-4xl mt-5">Front End Developer, Designer and Content Creator</h1>
-          <p className="text-slate-400 text-xs mt-5 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis non quaerat voluptatum voluptatibus quis sequi suscipit, provident facere autem exercitationem!</p>
+        <div data-aos="zoom-in">
+          <Image src="/images/logo.png" alt="" width={30} height={30} />
+          <h1 className="font-bold text-white text-lg mt-5 sm:text-xs md:text-2xl lg:text-4xl">Front End Developer, Designer and Content Creator</h1>
+          <p className="text-slate-400 text-[8px] md:text-md lg:text-base  mt-5 ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis non quaerat voluptatum voluptatibus quis sequi suscipit, provident facere autem exercitationem!
+          </p>
         </div>
-        <span className="flex gap-3 mt-5">
+        <span data-aos="fade-down" className="flex gap-3 mt-5">
           {sosmed.map((item) => (
             <Link key={item.id} href={item.url} target="_blank" rel="noopener noreferrer">
               {item.icon}
