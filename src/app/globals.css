@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 
-body {
+/* body {
   background: black;
-}
+} */
 
 @layer base {
   :root {
