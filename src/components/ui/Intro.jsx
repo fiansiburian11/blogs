@@ -44,7 +44,7 @@ export default function Intro() {
     <div>
       <section className="w-1/2 mt-20">
         <div data-aos="zoom-in">
-          <Image src="/images/logo.png" alt="" width={30} height={30} />
+          <Image src="/images/logo.PNG" alt="" width={30} height={30} />
           <h1 className="font-bold text-white text-lg mt-5 sm:text-xs md:text-2xl lg:text-4xl">Front End Developer, Designer and Content Creator</h1>
           <p className="text-slate-400 text-[8px] md:text-md lg:text-base  mt-5 ">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis non quaerat voluptatum voluptatibus quis sequi suscipit, provident facere autem exercitationem!
